@@ -3,537 +3,318 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="מדיניות פרטיות ונגישות לאפליקציית EatMates" />
-  <title>מדיניות פרטיות ונגישות - EatMates</title>
+
+  <title>EatMates - מדיניות פרטיות ומחיקת חשבון</title>
 
   <style>
-    :root {
-      --text-scale: 1;
-      --bg: #ffffff;
-      --text: #172033;
-      --muted: #475569;
-      --card: #f8fafc;
-      --border: #dbe3ef;
-      --accent: #0f766e;
-      --accent-dark: #115e59;
-      --focus: #f59e0b;
-      --link: #0b63ce;
-      --button-bg: #ffffff;
-      --button-text: #172033;
-      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, "Noto Sans Hebrew", sans-serif;
-      font-size: calc(18px * var(--text-scale));
-      line-height: 1.75;
-      direction: rtl;
-      text-align: right;
-      transition: background 0.2s ease, color 0.2s ease, font-size 0.2s ease;
-    }
-
-    body.reduced-motion,
-    body.reduced-motion * {
-      animation: none !important;
-      transition: none !important;
-      scroll-behavior: auto !important;
-    }
-
-    body.dark-mode {
-      --bg: #0f172a;
-      --text: #f8fafc;
-      --muted: #cbd5e1;
-      --card: #1e293b;
-      --border: #475569;
-      --accent: #2dd4bf;
-      --accent-dark: #5eead4;
-      --link: #93c5fd;
-      --button-bg: #111827;
-      --button-text: #f8fafc;
-      --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
-    }
-
-    body.high-contrast {
-      --bg: #000000;
-      --text: #ffffff;
-      --muted: #ffffff;
-      --card: #000000;
-      --border: #ffffff;
-      --accent: #ffff00;
-      --accent-dark: #ffff00;
-      --link: #ffff00;
-      --button-bg: #000000;
-      --button-text: #ffffff;
-      --shadow: none;
-    }
-
-    body.readable-font {
-      font-family: Verdana, Arial, "Noto Sans Hebrew", sans-serif;
-      letter-spacing: 0.01em;
-      word-spacing: 0.06em;
-    }
-
-    body.links-underlined a {
-      text-decoration: underline !important;
-      text-decoration-thickness: 0.14em !important;
-      text-underline-offset: 0.18em !important;
-    }
-
-    a {
-      color: var(--link);
-      font-weight: 700;
-      text-decoration-thickness: 0.08em;
-      text-underline-offset: 0.16em;
-    }
-
-    a:hover { text-decoration-thickness: 0.14em; }
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: 4px solid var(--focus);
-      outline-offset: 4px;
-      border-radius: 8px;
-    }
-
-    .skip-link {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      z-index: 9999;
-      transform: translateY(-180%);
-      background: var(--accent);
-      color: #00110f;
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .skip-link:focus { transform: translateY(0); }
-
-    header {
-      background: linear-gradient(135deg, rgba(15, 118, 110, 0.13), rgba(59, 130, 246, 0.10));
-      border-bottom: 1px solid var(--border);
-      padding: 32px 20px 24px;
+      padding: 0;
+      background: #f5f7fb;
+      font-family: Arial, sans-serif;
+      color: #1e293b;
     }
 
     .container {
-      width: min(980px, calc(100% - 32px));
-      margin: 0 auto;
+      max-width: 900px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
     }
 
-    .hero { display: grid; gap: 12px; }
+    .logo {
+      width: 130px;
+      display: block;
+      margin: 0 auto 20px;
+    }
 
-    .app-name {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      width: fit-content;
-      padding: 8px 14px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: var(--card);
-      color: var(--muted);
-      font-weight: 700;
+    .banner {
+      width: 100%;
+      border-radius: 22px;
+      margin-bottom: 30px;
+      display: block;
+    }
+
+    h1, h2 {
+      color: #0f172a;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      line-height: 1.15;
-      letter-spacing: -0.03em;
+      text-align: center;
+      margin-bottom: 10px;
     }
 
-    h2 {
-      margin: 34px 0 10px;
-      font-size: clamp(1.25rem, 3vw, 1.7rem);
-      line-height: 1.3;
-      color: var(--text);
+    .subtitle {
+      text-align: center;
+      color: #64748b;
+      line-height: 1.8;
+      margin-bottom: 35px;
+      font-size: 18px;
     }
 
-    p, li { color: var(--text); }
-
-    .lead {
-      max-width: 850px;
-      color: var(--muted);
-      font-size: 1.05em;
-      margin: 0;
+    .section {
+      background: #f8fafc;
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 25px;
+      line-height: 1.8;
     }
 
-    main { padding: 28px 0 56px; }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-      margin: 18px 0;
+    ul {
+      line-height: 2;
+      padding-right: 20px;
     }
 
-    .accessibility-panel {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 0;
+    .warning {
+      background: #fff7ed;
+      border: 1px solid #fdba74;
+      color: #9a3412;
     }
 
-    .toolbar-title {
-      margin: 0 0 10px;
-      font-weight: 800;
-      color: var(--text);
+    .info {
+      background: #ecfdf5;
+      border: 1px solid #86efac;
+      color: #166534;
     }
 
-    .toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .toolbar button {
-      appearance: none;
-      border: 1px solid var(--border);
-      background: var(--button-bg);
-      color: var(--button-text);
-      border-radius: 999px;
-      padding: 10px 14px;
-      min-height: 44px;
+    .delete-btn {
+      width: 100%;
+      border: none;
+      border-radius: 18px;
+      padding: 18px;
+      font-size: 18px;
       cursor: pointer;
-      font: inherit;
-      font-size: 0.92em;
-      font-weight: 800;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
+      background: #ef4444;
+      color: white;
+      font-weight: bold;
+      transition: 0.2s;
     }
 
-    .toolbar button:hover { border-color: var(--accent-dark); }
-
-    .toolbar button[aria-pressed="true"] {
-      background: var(--accent);
-      color: #00110f;
-      border-color: var(--accent);
+    .delete-btn:hover {
+      background: #dc2626;
     }
 
-    body.high-contrast .toolbar button[aria-pressed="true"] { color: #000000; }
-
-    .status-message {
-      min-height: 1.4em;
-      margin-top: 10px;
-      color: var(--muted);
-      font-weight: 700;
+    .cancel-btn {
+      width: 100%;
+      border: none;
+      border-radius: 18px;
+      padding: 15px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #e2e8f0;
+      color: #0f172a;
+      margin-top: 12px;
     }
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 0 40px;
-      color: var(--muted);
+    .hidden {
+      display: none;
     }
 
-    @media (max-width: 640px) {
-      body { font-size: calc(17px * var(--text-scale)); }
-      header { padding-top: 26px; }
-      .container { width: min(100% - 24px, 980px); }
-      .toolbar { display: grid; grid-template-columns: 1fr 1fr; }
-      .toolbar button { width: 100%; border-radius: 14px; padding: 11px 10px; }
-      .card { padding: 18px; border-radius: 16px; }
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 14px;
     }
 
-    @media print {
-      .accessibility-panel, .skip-link { display: none !important; }
-      body { background: #ffffff; color: #000000; font-size: 14pt; }
-      .card { box-shadow: none; border: 1px solid #000000; }
+    .small {
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 15px;
+        padding: 24px;
+      }
+
+      .logo {
+        width: 110px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">דלג לתוכן המרכזי</a>
 
-  <header>
-    <div class="container hero">
-      <div class="app-name" aria-label="שם האפליקציה">🍽️ EatMates</div>
-      <h1>מדיניות פרטיות ונגישות</h1>
-      <p class="lead">
-        עמוד זה מסביר כיצד אפליקציית EatMates מתייחסת למידע שמוזן באפליקציה, כיצד הנתונים משמשים לניהול אירועים חברתיים, ומהן אפשרויות הנגישות הזמינות בעמוד.
+  <div class="container">
+
+    <img class="logo" src="./logo.png" alt="EatMates Logo" />
+
+    <img class="banner" src="./banner.png" alt="EatMates Banner" />
+
+    <h1>EatMates</h1>
+
+    <div class="subtitle">
+      מדיניות פרטיות, שימוש בנתונים ובקשת מחיקת חשבון עבור אפליקציית EatMates.
+    </div>
+
+    <div class="section">
+      <h2>מדיניות פרטיות</h2>
+
+      <p>
+        EatMates היא אפליקציה לניהול אירועים קבוצתיים, משתתפים, ציוד, תשלומים ותקציב.
+        האפליקציה משתמשת בשירותי Firebase ו-Google לצורך התחברות, שמירת נתונים וסנכרון.
+      </p>
+
+      <ul>
+        <li>התחברות מתבצעת באמצעות Google Sign-In.</li>
+        <li>נתוני אירועים ומשתתפים עשויים להישמר ב-Firebase Firestore.</li>
+        <li>האפליקציה עשויה ליצור ולעדכן קבצי Google Sheets בחשבון Google של המשתמש.</li>
+        <li>האפליקציה אינה מוכרת מידע אישי ואינה משתפת מידע אישי לצורכי פרסום.</li>
+        <li>האפליקציה אינה כוללת רכישות, שירותים פיננסיים, תוכן רפואי או הימורים.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>איזה מידע עשוי להישמר?</h2>
+
+      <ul>
+        <li>שם וכתובת מייל של המשתמש המחובר.</li>
+        <li>אירועים שהמשתמש יוצר או מצטרף אליהם.</li>
+        <li>שמות משתתפים ומספרי טלפון שהוזנו באירוע.</li>
+        <li>פריטים, ציוד, סכומים, תשלומים ונתוני תקציב.</li>
+        <li>קישורי Google Sheets שנוצרו לצורך סנכרון האירוע.</li>
+      </ul>
+    </div>
+
+    <div class="section info">
+      <h2>שימוש ב-Google Sheets ו-Google Drive</h2>
+
+      <p>
+        EatMates עשויה ליצור קובץ Google Sheets בחשבון Google האישי של המשתמש,
+        כדי לאפשר סנכרון נוח של נתוני האירוע.
+      </p>
+
+      <p>
+        הגישה ל-Google Sheets/Drive משמשת רק לצורך יצירה ועדכון של קבצי האירוע
+        הקשורים ל-EatMates.
       </p>
     </div>
-  </header>
 
-  <section class="accessibility-panel" aria-labelledby="accessibility-title">
-    <div class="container">
-      <p id="accessibility-title" class="toolbar-title">אפשרויות נגישות</p>
+    <div class="section">
+      <h2>מחיקת חשבון ונתונים</h2>
 
-      <div class="toolbar" role="group" aria-label="סרגל אפשרויות נגישות">
-        <button type="button" data-action="increase-text" aria-controls="main-content">הגדל טקסט</button>
-        <button type="button" data-action="decrease-text" aria-controls="main-content">הקטן טקסט</button>
-        <button type="button" data-action="toggle-contrast" aria-pressed="false">ניגודיות גבוהה</button>
-        <button type="button" data-action="toggle-dark" aria-pressed="false">מצב כהה</button>
-        <button type="button" data-action="toggle-links" aria-pressed="false">הדגש קישורים</button>
-        <button type="button" data-action="toggle-font" aria-pressed="false">פונט קריא</button>
-        <button type="button" data-action="toggle-motion" aria-pressed="false">צמצום תנועה</button>
-        <button type="button" data-action="reset">איפוס</button>
+      <p>
+        ניתן לבקש מחיקת חשבון ונתונים המשויכים לאפליקציית EatMates.
+        בשלב זה בקשות המחיקה מטופלות באופן ידני, ללא צורך בתשלום או שירות חיצוני.
+      </p>
+
+      <p>
+        לאחר קבלת הבקשה, הנתונים המשויכים לחשבון המשתמש במערכות EatMates
+        יימחקו תוך עד 30 ימים.
+      </p>
+
+      <p>הנתונים שעשויים להימחק:</p>
+
+      <ul>
+        <li>פרטי משתמש המשויכים לחשבון Google.</li>
+        <li>אירועים שנוצרו על ידי המשתמש.</li>
+        <li>משתתפים, פריטים, תקציבים ותשלומים הקשורים לאירועים.</li>
+        <li>נתוני Firebase / Firestore המשויכים לחשבון.</li>
+        <li>קישורי סנכרון פנימיים של EatMates.</li>
+      </ul>
+    </div>
+
+    <div class="section warning">
+      <h2>חשוב לדעת לגבי Google Sheets</h2>
+
+      <ul>
+        <li>
+          קבצי Google Sheets או Google Drive שנוצרו בחשבון Google האישי של המשתמש
+          אינם נמחקים אוטומטית על ידי EatMates.
+        </li>
+        <li>
+          קבצים אלו נמצאים בבעלות המשתמש בחשבון Google האישי שלו.
+        </li>
+        <li>
+          אם המשתמש מעוניין למחוק גם את קבצי Google Sheets,
+          עליו למחוק אותם ידנית מתוך Google Drive.
+        </li>
+        <li>
+          לאחר השלמת מחיקת נתוני EatMates, לא ניתן יהיה לשחזר אותם.
+        </li>
+      </ul>
+    </div>
+
+    <button class="delete-btn" onclick="showConfirm()">
+      בקשת מחיקת חשבון
+    </button>
+
+    <div id="confirmBox" class="hidden" style="margin-top:20px;">
+      <div class="section warning">
+        <h2>אישור בקשת מחיקה</h2>
+        <p>
+          האם אתה בטוח שברצונך לבקש מחיקת חשבון ונתוני EatMates?
+        </p>
+        <p>
+          לאחר לחיצה על אישור, תיפתח הודעת מייל מוכנה לשליחה.
+          יש לציין את כתובת חשבון Google שאיתה התחברת לאפליקציה.
+        </p>
       </div>
 
-      <div id="accessibility-status" class="status-message" role="status" aria-live="polite"></div>
+      <button class="delete-btn" onclick="sendDeleteRequest()">
+        כן, פתח בקשת מחיקה במייל
+      </button>
 
-      <noscript>
-        <p class="status-message">
-          JavaScript כבוי בדפדפן ולכן כפתורי הנגישות הדינמיים אינם פעילים. ניתן עדיין לקרוא את התוכן, להגדיל טקסט דרך הדפדפן ולהשתמש בניווט מקלדת.
-        </p>
-      </noscript>
+      <button class="cancel-btn" onclick="hideConfirm()">
+        ביטול
+      </button>
     </div>
-  </section>
 
-  <main id="main-content" class="container" tabindex="-1">
-    <section class="card" aria-labelledby="privacy-intro">
-      <h2 id="privacy-intro">על האפליקציה</h2>
+    <div class="section">
+      <h2>יצירת קשר</h2>
+
       <p>
-        מדיניות פרטיות זו מתייחסת לאפליקציית EatMates. האפליקציה נועדה לעזור למשתמשים לנהל אירועים חברתיים כגון על האש, מפגשים, חלוקת משתתפים, פריטים, עלויות ותשלומים בין חברים.
+        לכל שאלה בנושא פרטיות, מחיקת חשבון או שימוש בנתונים ניתן לפנות אל:
       </p>
-    </section>
 
-    <section aria-labelledby="data-collected">
-      <h2 id="data-collected">איזה מידע נאסף באפליקציה</h2>
       <p>
-        האפליקציה עשויה לשמור מידע שהמשתמשים מזינים בעצמם, כגון שמות משתתפים, שמות אירועים, פריטים לאירוע, כמויות, סכומים, חלוקת עלויות, הערות וקודי גישה זמניים לאירוע.
+        <strong>djmotti@gmail.com</strong>
       </p>
-    </section>
 
-    <section aria-labelledby="event-codes">
-      <h2 id="event-codes">שימוש בקודי גישה לאירועים</h2>
-      <p>
-        EatMates עשויה להשתמש בקוד אירוע זמני כדי לאפשר למשתתפים להצטרף לאירוע מסוים. הקוד משמש לצורך גישה לאותו אירוע בלבד ואינו מיועד לזיהוי אישי רחב של המשתמש.
+      <p class="small">
+        עדכון אחרון: 22.05.2026
       </p>
-    </section>
-
-    <section aria-labelledby="usage">
-      <h2 id="usage">שימוש במידע</h2>
-      <p>
-        המידע משמש להפעלת הפונקציות של האפליקציה בלבד, כולל יצירת אירוע, ניהול משתתפים, חישוב עלויות, הצגת פריטים, חלוקת סכומים בין המשתתפים וסנכרון נתוני האירוע בין מכשירים, ככל שפונקציה זו זמינה.
-      </p>
-    </section>
-
-    <section aria-labelledby="storage">
-      <h2 id="storage">שמירת נתונים וסנכרון</h2>
-      <p>
-        האפליקציה עשויה לשמור נתונים מקומית במכשיר ו/או לסנכרן נתונים מול שירות חיצוני כגון Google Sheets או Google Apps Script, בהתאם להגדרות המשתמש ולגרסת האפליקציה. כאשר נעשה שימוש בשירותי Google, הנתונים נשמרים ומנוהלים לפי ההרשאות והמדיניות של Google.
-      </p>
-    </section>
-
-    <section aria-labelledby="third-party">
-      <h2 id="third-party">שיתוף מידע עם צדדים שלישיים</h2>
-      <p>
-        EatMates אינה מוכרת, משכירה או משתפת מידע אישי עם צדדים שלישיים לצורכי פרסום או שיווק. אם נעשה שימוש בשירותי Google לצורך סנכרון או שמירת נתונים, השימוש בהם כפוף למדיניות הפרטיות ולתנאי השימוש של Google.
-      </p>
-    </section>
-
-    <section aria-labelledby="permissions">
-      <h2 id="permissions">הרשאות וגישה למכשיר</h2>
-      <p>
-        האפליקציה עשויה להשתמש בגישה לאינטרנט לצורך סנכרון נתונים או טעינת נתונים. האפליקציה אינה מיועדת לאיסוף מיקום מדויק, אנשי קשר, תמונות, מצלמה, מיקרופון או מידע רגיש אחר, אלא אם המשתמש הזין מידע כזה בעצמו כחלק מתוכן האירוע.
-      </p>
-    </section>
-
-    <section aria-labelledby="delete-data">
-      <h2 id="delete-data">מחיקת נתונים</h2>
-      <p>
-        המשתמש יכול למחוק או לערוך את המידע מתוך האפליקציה, ככל שהאפשרות קיימת. אם הנתונים נשמרים בגיליון Google Sheets או בשירות חיצוני אחר שהמשתמש הגדיר, ניתן למחוק את הנתונים גם ישירות מאותו שירות. ניתן לפנות אלינו בבקשה לסיוע במחיקת מידע דרך כתובת הדוא"ל שמופיעה מטה.
-      </p>
-    </section>
-
-    <section aria-labelledby="security">
-      <h2 id="security">אבטחת מידע</h2>
-      <p>
-        אנו נוקטים באמצעים סבירים כדי לשמור על פרטיות המידע. עם זאת, אין שיטת אחסון או העברת מידע באינטרנט שמבטיחה אבטחה מוחלטת. מומלץ לא לשתף קודי אירוע או קישורי סנכרון עם אנשים שאינם אמורים להשתתף באירוע.
-      </p>
-    </section>
-
-    <section aria-labelledby="children">
-      <h2 id="children">ילדים</h2>
-      <p>
-        האפליקציה אינה מיועדת לילדים מתחת לגיל 13 ואינה פונה באופן ייעודי לילדים.
-      </p>
-    </section>
-
-    <section aria-labelledby="changes">
-      <h2 id="changes">שינויים במדיניות הפרטיות</h2>
-      <p>
-        ייתכן שמדיניות פרטיות זו תעודכן מעת לעת. במקרה של שינוי מהותי, נעדכן את תאריך העדכון האחרון שמופיע במסמך זה.
-      </p>
-    </section>
-
-    <section class="card" aria-labelledby="accessibility-statement">
-      <h2 id="accessibility-statement">הצהרת נגישות</h2>
-      <p>
-        אנו שואפים להנגיש את עמוד מדיניות הפרטיות ואת המידע המופיע בו לכלל המשתמשים, לרבות אנשים עם מוגבלות. העמוד נבנה כעמוד HTML טקסטואלי עם תמיכה בעברית מימין לשמאל, מבנה כותרות ברור, ניווט מקלדת, קישור דילוג לתוכן, ניגודיות טובה, התאמה למובייל ואפשרויות נגישות להפעלת המשתמש.
-      </p>
-      <p>
-        אם נתקלתם בקושי בגלישה, בקריאת התוכן או בשימוש בעמוד, ניתן לפנות אלינו בדוא"ל:
-        <a href="mailto:djmotti@gmail.com">djmotti@gmail.com</a>
-      </p>
-    </section>
-
-    <section aria-labelledby="contact">
-      <h2 id="contact">יצירת קשר</h2>
-      <p>
-        לשאלות בנושא פרטיות, נגישות או בקשות למחיקת מידע ניתן לפנות אלינו בדוא"ל:
-        <a href="mailto:djmotti@gmail.com">djmotti@gmail.com</a>
-      </p>
-    </section>
-
-    <section aria-labelledby="last-update">
-      <h2 id="last-update">עדכון אחרון</h2>
-      <p>15 במאי 2026</p>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>© EatMates. כל הזכויות שמורות.</p>
     </div>
-  </footer>
+
+    <div class="footer">
+      EatMates © 2026
+    </div>
+
+  </div>
 
   <script>
-    (function () {
-      "use strict";
+    function showConfirm() {
+      document.getElementById("confirmBox").classList.remove("hidden");
+      document.getElementById("confirmBox").scrollIntoView({ behavior: "smooth" });
+    }
 
-      const storageKey = "eatmatesAccessibilitySettings";
-      const defaultSettings = {
-        textScale: 1,
-        highContrast: false,
-        darkMode: false,
-        underlineLinks: false,
-        readableFont: false,
-        reducedMotion: false
-      };
+    function hideConfirm() {
+      document.getElementById("confirmBox").classList.add("hidden");
+    }
 
-      let settings = loadSettings();
-      const body = document.body;
-      const status = document.getElementById("accessibility-status");
-      const buttons = document.querySelectorAll("[data-action]");
+    function sendDeleteRequest() {
+      const subject = encodeURIComponent("בקשת מחיקת חשבון EatMates");
+      const body = encodeURIComponent(
+        "שלום,\n\n" +
+        "אני מבקש למחוק את חשבון EatMates שלי ואת הנתונים המשויכים אליו.\n\n" +
+        "כתובת חשבון Google שאיתה התחברתי לאפליקציה:\n" +
+        "[נא למלא כאן את כתובת המייל]\n\n" +
+        "אני מבין/ה כי נתוני EatMates יימחקו תוך עד 30 ימים, וכי קבצי Google Sheets או Google Drive שנוצרו בחשבון Google האישי שלי אינם נמחקים אוטומטית ויש למחוק אותם ידנית דרך Google Drive.\n\n" +
+        "תודה."
+      );
 
-      function loadSettings() {
-        try {
-          const saved = window.localStorage.getItem(storageKey);
-          return saved ? { ...defaultSettings, ...JSON.parse(saved) } : { ...defaultSettings };
-        } catch (error) {
-          return { ...defaultSettings };
-        }
-      }
-
-      function saveSettings() {
-        try {
-          window.localStorage.setItem(storageKey, JSON.stringify(settings));
-        } catch (error) {
-          // אם הדפדפן חוסם localStorage, הכפתורים עדיין יעבדו באותו ביקור.
-        }
-      }
-
-      function setStatus(message) {
-        if (status) status.textContent = message;
-      }
-
-      function clampTextScale(value) {
-        return Math.min(1.6, Math.max(0.85, Number(value.toFixed(2))));
-      }
-
-      function applySettings(message) {
-        document.documentElement.style.setProperty("--text-scale", String(settings.textScale));
-        body.classList.toggle("high-contrast", settings.highContrast);
-        body.classList.toggle("dark-mode", settings.darkMode && !settings.highContrast);
-        body.classList.toggle("links-underlined", settings.underlineLinks);
-        body.classList.toggle("readable-font", settings.readableFont);
-        body.classList.toggle("reduced-motion", settings.reducedMotion);
-        updatePressedStates();
-        if (message) setStatus(message);
-      }
-
-      function updatePressedStates() {
-        const map = {
-          "toggle-contrast": settings.highContrast,
-          "toggle-dark": settings.darkMode && !settings.highContrast,
-          "toggle-links": settings.underlineLinks,
-          "toggle-font": settings.readableFont,
-          "toggle-motion": settings.reducedMotion
-        };
-
-        buttons.forEach((button) => {
-          const action = button.getAttribute("data-action");
-          if (Object.prototype.hasOwnProperty.call(map, action)) {
-            button.setAttribute("aria-pressed", String(Boolean(map[action])));
-          }
-        });
-      }
-
-      function resetSettings() {
-        settings = { ...defaultSettings };
-        saveSettings();
-        applySettings("אפשרויות הנגישות אופסו.");
-      }
-
-      function handleAction(action) {
-        switch (action) {
-          case "increase-text":
-            settings.textScale = clampTextScale(settings.textScale + 0.1);
-            saveSettings();
-            applySettings("גודל הטקסט הוגדל.");
-            break;
-          case "decrease-text":
-            settings.textScale = clampTextScale(settings.textScale - 0.1);
-            saveSettings();
-            applySettings("גודל הטקסט הוקטן.");
-            break;
-          case "toggle-contrast":
-            settings.highContrast = !settings.highContrast;
-            if (settings.highContrast) settings.darkMode = false;
-            saveSettings();
-            applySettings(settings.highContrast ? "ניגודיות גבוהה הופעלה." : "ניגודיות גבוהה כובתה.");
-            break;
-          case "toggle-dark":
-            settings.darkMode = !settings.darkMode;
-            if (settings.darkMode) settings.highContrast = false;
-            saveSettings();
-            applySettings(settings.darkMode ? "מצב כהה הופעל." : "מצב כהה כובה.");
-            break;
-          case "toggle-links":
-            settings.underlineLinks = !settings.underlineLinks;
-            saveSettings();
-            applySettings(settings.underlineLinks ? "הדגשת קישורים הופעלה." : "הדגשת קישורים כובתה.");
-            break;
-          case "toggle-font":
-            settings.readableFont = !settings.readableFont;
-            saveSettings();
-            applySettings(settings.readableFont ? "פונט קריא הופעל." : "פונט קריא כובה.");
-            break;
-          case "toggle-motion":
-            settings.reducedMotion = !settings.reducedMotion;
-            saveSettings();
-            applySettings(settings.reducedMotion ? "צמצום תנועה הופעל." : "צמצום תנועה כובה.");
-            break;
-          case "reset":
-            resetSettings();
-            break;
-          default:
-            break;
-        }
-      }
-
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-          handleAction(button.getAttribute("data-action"));
-        });
-      });
-
-      applySettings("");
-    })();
+      window.location.href =
+        "mailto:djmotti@gmail.com?subject=" + subject + "&body=" + body;
+    }
   </script>
+
 </body>
 </html>
