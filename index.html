@@ -4,21 +4,79 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>EatMates - מדיניות פרטיות ומחיקת חשבון</title>
+  <title>EatMates - דף בית, מדיניות פרטיות ומחיקת חשבון</title>
+
+  <meta name="description" content="EatMates - אפליקציה לניהול אירועים קבוצתיים, משתתפים, ציוד, תקציב, Google Sheets ומחיקת חשבון." />
 
   <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1e293b;
+      --title: #0f172a;
+      --muted: #64748b;
+      --primary: #2563eb;
+      --danger: #ef4444;
+      --danger-hover: #dc2626;
+      --border: #e2e8f0;
+      --section: #f8fafc;
+      --warning-bg: #fff7ed;
+      --warning-border: #fdba74;
+      --warning-text: #9a3412;
+      --info-bg: #ecfdf5;
+      --info-border: #86efac;
+      --info-text: #166534;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background: #f5f7fb;
+      background: var(--bg);
       font-family: Arial, sans-serif;
-      color: #1e293b;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    body.large-text {
+      font-size: 120%;
+    }
+
+    body.high-contrast {
+      --bg: #000000;
+      --card: #111111;
+      --text: #ffffff;
+      --title: #ffffff;
+      --muted: #facc15;
+      --primary: #facc15;
+      --border: #ffffff;
+      --section: #1f1f1f;
+      --warning-bg: #1f1f1f;
+      --warning-border: #facc15;
+      --warning-text: #ffffff;
+      --info-bg: #1f1f1f;
+      --info-border: #22c55e;
+      --info-text: #ffffff;
+    }
+
+    body.underline-links a {
+      text-decoration: underline !important;
+    }
+
+    body.reduce-motion * {
+      scroll-behavior: auto !important;
+      transition: none !important;
+      animation: none !important;
+    }
+
+    a {
+      color: var(--primary);
+      font-weight: bold;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 980px;
       margin: 40px auto;
-      background: #ffffff;
+      background: var(--card);
       border-radius: 28px;
       padding: 40px;
       box-shadow: 0 10px 35px rgba(0,0,0,0.08);
@@ -35,31 +93,66 @@
       border-radius: 22px;
       margin-bottom: 30px;
       display: block;
+      background: #ffffff;
     }
 
-    h1, h2 {
-      color: #0f172a;
+    h1, h2, h3 {
+      color: var(--title);
     }
 
     h1 {
       text-align: center;
       margin-bottom: 10px;
+      font-size: 38px;
     }
 
     .subtitle {
       text-align: center;
-      color: #64748b;
+      color: var(--muted);
       line-height: 1.8;
-      margin-bottom: 35px;
+      margin-bottom: 28px;
       font-size: 18px;
     }
 
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 24px 0 34px;
+    }
+
+    .nav-links a,
+    .accessibility-panel button,
+    .delete-btn,
+    .cancel-btn {
+      border-radius: 16px;
+      min-height: 44px;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      background: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a.secondary {
+      background: #ffffff;
+      color: var(--title);
+      border: 1px solid var(--border);
+    }
+
     .section {
-      background: #f8fafc;
+      background: var(--section);
       border-radius: 18px;
       padding: 25px;
       margin-bottom: 25px;
-      line-height: 1.8;
+      border: 1px solid transparent;
     }
 
     ul {
@@ -68,44 +161,44 @@
     }
 
     .warning {
-      background: #fff7ed;
-      border: 1px solid #fdba74;
-      color: #9a3412;
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      color: var(--warning-text);
     }
 
     .info {
-      background: #ecfdf5;
-      border: 1px solid #86efac;
-      color: #166534;
+      background: var(--info-bg);
+      border: 1px solid var(--info-border);
+      color: var(--info-text);
     }
 
     .delete-btn {
       width: 100%;
       border: none;
-      border-radius: 18px;
       padding: 18px;
       font-size: 18px;
       cursor: pointer;
-      background: #ef4444;
+      background: var(--danger);
       color: white;
       font-weight: bold;
       transition: 0.2s;
     }
 
-    .delete-btn:hover {
-      background: #dc2626;
+    .delete-btn:hover,
+    .delete-btn:focus {
+      background: var(--danger-hover);
     }
 
     .cancel-btn {
       width: 100%;
       border: none;
-      border-radius: 18px;
       padding: 15px;
       font-size: 16px;
       cursor: pointer;
       background: #e2e8f0;
       color: #0f172a;
       margin-top: 12px;
+      font-weight: bold;
     }
 
     .hidden {
@@ -115,13 +208,74 @@
     .footer {
       margin-top: 40px;
       text-align: center;
-      color: #94a3b8;
+      color: var(--muted);
       font-size: 14px;
     }
 
     .small {
       font-size: 14px;
-      color: #64748b;
+      color: var(--muted);
+    }
+
+    .accessibility-toggle {
+      position: fixed;
+      left: 16px;
+      bottom: 16px;
+      z-index: 9999;
+      border: 2px solid #ffffff;
+      background: #111827;
+      color: #ffffff;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+      min-height: 48px;
+    }
+
+    .accessibility-panel {
+      position: fixed;
+      left: 16px;
+      bottom: 76px;
+      z-index: 9999;
+      width: 260px;
+      background: var(--card);
+      color: var(--text);
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.22);
+    }
+
+    .accessibility-panel h2 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    .accessibility-panel button {
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 10px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--section);
+      color: var(--text);
+      font-weight: bold;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      right: 16px;
+      background: #000;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      z-index: 10000;
+    }
+
+    .skip-link:focus {
+      top: 16px;
     }
 
     @media (max-width: 600px) {
@@ -134,28 +288,81 @@
         width: 110px;
       }
 
+      h1 {
+        font-size: 30px;
+      }
+
       .subtitle {
         font-size: 16px;
+      }
+
+      .accessibility-panel {
+        width: calc(100% - 32px);
       }
     }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">דלג לתוכן המרכזי</a>
 
-  <div class="container">
+  <button
+    class="accessibility-toggle"
+    onclick="toggleAccessibilityPanel()"
+    aria-controls="accessibilityPanel"
+    aria-expanded="false"
+    id="accessibilityButton"
+  >
+    נגישות
+  </button>
 
-    <img class="logo" src="./logo.png" alt="EatMates Logo" />
+  <div
+    id="accessibilityPanel"
+    class="accessibility-panel hidden"
+    role="dialog"
+    aria-label="תפריט נגישות"
+  >
+    <h2>אפשרויות נגישות</h2>
 
-    <img class="banner" src="./banner.png" alt="EatMates Banner" />
+    <button onclick="toggleLargeText()">הגדלת טקסט</button>
+    <button onclick="toggleContrast()">ניגודיות גבוהה</button>
+    <button onclick="toggleUnderlineLinks()">הדגשת קישורים</button>
+    <button onclick="toggleReduceMotion()">עצירת אנימציות</button>
+    <button onclick="resetAccessibility()">איפוס הגדרות</button>
 
-    <h1>EatMates</h1>
+    <p class="small">
+      תפריט זה מספק התאמות בסיסיות לשיפור שימושיות ונגישות. אם נתקלת בבעיה, ניתן לפנות במייל המופיע בעמוד.
+    </p>
+  </div>
 
-    <div class="subtitle">
-      מדיניות פרטיות, שימוש בנתונים ובקשת מחיקת חשבון עבור אפליקציית EatMates.
-    </div>
+  <main id="main-content" class="container">
+    <header id="home">
+      <img class="logo" src="./logo.png" alt="EatMates Logo" />
+      <img class="banner" src="./banner.png" alt="EatMates Banner" />
 
-    <div class="section">
+      <h1>EatMates</h1>
+
+      <div class="subtitle">
+        אפליקציה לניהול אירועים קבוצתיים, משתתפים, ציוד, תשלומים, תקציב וסנכרון עם Google Sheets.
+      </div>
+
+      <nav class="nav-links" aria-label="ניווט בעמוד">
+        <a href="#privacy">מדיניות פרטיות</a>
+        <a href="#terms" class="secondary">תנאי שימוש</a>
+        <a href="#delete" class="secondary">מחיקת חשבון</a>
+        <a href="#contact" class="secondary">יצירת קשר</a>
+      </nav>
+    </header>
+
+    <section class="section">
+      <h2>מה EatMates עושה?</h2>
+      <p>
+        EatMates נועדה לעזור למשתמשים לנהל אירועים קבוצתיים בצורה פשוטה:
+        מי מגיע, מה כל אחד מביא, כמה עלה, איך מתחלק התקציב, ומה הסיכום שניתן לשתף עם המשתתפים.
+      </p>
+    </section>
+
+    <section id="privacy" class="section">
       <h2>מדיניות פרטיות</h2>
 
       <p>
@@ -170,9 +377,9 @@
         <li>האפליקציה אינה מוכרת מידע אישי ואינה משתפת מידע אישי לצורכי פרסום.</li>
         <li>האפליקציה אינה כוללת רכישות, שירותים פיננסיים, תוכן רפואי או הימורים.</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="section">
+    <section class="section">
       <h2>איזה מידע עשוי להישמר?</h2>
 
       <ul>
@@ -182,9 +389,9 @@
         <li>פריטים, ציוד, סכומים, תשלומים ונתוני תקציב.</li>
         <li>קישורי Google Sheets שנוצרו לצורך סנכרון האירוע.</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="section info">
+    <section class="section info">
       <h2>שימוש ב-Google Sheets ו-Google Drive</h2>
 
       <p>
@@ -196,9 +403,26 @@
         הגישה ל-Google Sheets/Drive משמשת רק לצורך יצירה ועדכון של קבצי האירוע
         הקשורים ל-EatMates.
       </p>
-    </div>
+    </section>
 
-    <div class="section">
+    <section id="terms" class="section">
+      <h2>תנאי שימוש</h2>
+
+      <p>
+        השימוש באפליקציית EatMates נעשה באחריות המשתמש. מטרת האפליקציה היא לסייע בניהול
+        אירועים קבוצתיים, משתתפים, פריטים, תשלומים וסיכומים.
+      </p>
+
+      <ul>
+        <li>המשתמש אחראי להזין מידע נכון ומדויק באירועים שהוא יוצר או מנהל.</li>
+        <li>המשתמש אחראי לקבל הסכמה ממשתתפים אם הוא מזין פרטים אישיים שלהם.</li>
+        <li>EatMates אינה אחראית למחלוקות כספיות, חלוקת תשלומים או הסכמות בין משתתפים.</li>
+        <li>שירותי Google ו-Firebase כפופים גם לתנאים ולמדיניות של Google.</li>
+        <li>ייתכנו שינויים, שיפורים או הפסקות זמניות בשירות לצורך תחזוקה.</li>
+      </ul>
+    </section>
+
+    <section id="delete" class="section">
       <h2>מחיקת חשבון ונתונים</h2>
 
       <p>
@@ -220,9 +444,9 @@
         <li>נתוני Firebase / Firestore המשויכים לחשבון.</li>
         <li>קישורי סנכרון פנימיים של EatMates.</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="section warning">
+    <section class="section warning">
       <h2>חשוב לדעת לגבי Google Sheets</h2>
 
       <ul>
@@ -241,14 +465,14 @@
           לאחר השלמת מחיקת נתוני EatMates, לא ניתן יהיה לשחזר אותם.
         </li>
       </ul>
-    </div>
+    </section>
 
     <button class="delete-btn" onclick="showConfirm()">
       בקשת מחיקת חשבון
     </button>
 
     <div id="confirmBox" class="hidden" style="margin-top:20px;">
-      <div class="section warning">
+      <section class="section warning">
         <h2>אישור בקשת מחיקה</h2>
         <p>
           האם אתה בטוח שברצונך לבקש מחיקת חשבון ונתוני EatMates?
@@ -257,7 +481,7 @@
           לאחר לחיצה על אישור, תיפתח הודעת מייל מוכנה לשליחה.
           יש לציין את כתובת חשבון Google שאיתה התחברת לאפליקציה.
         </p>
-      </div>
+      </section>
 
       <button class="delete-btn" onclick="sendDeleteRequest()">
         כן, פתח בקשת מחיקה במייל
@@ -268,11 +492,26 @@
       </button>
     </div>
 
-    <div class="section">
+    <section id="accessibility" class="section">
+      <h2>הצהרת נגישות</h2>
+
+      <p>
+        EatMates שואפת לספק חוויית שימוש נגישה, ברורה ונוחה ככל האפשר.
+        בעמוד זה שולבו התאמות בסיסיות כגון ניווט מקלדת, קישור דילוג לתוכן,
+        ניגודיות גבוהה, הגדלת טקסט, הדגשת קישורים ועצירת אנימציות.
+      </p>
+
+      <p>
+        אם נתקלת בקושי נגישות או בבעיה בשימוש בעמוד, ניתן לפנות אלינו במייל:
+        <strong>djmotti@gmail.com</strong>
+      </p>
+    </section>
+
+    <section id="contact" class="section">
       <h2>יצירת קשר</h2>
 
       <p>
-        לכל שאלה בנושא פרטיות, מחיקת חשבון או שימוש בנתונים ניתן לפנות אל:
+        לכל שאלה בנושא פרטיות, מחיקת חשבון, נגישות או שימוש בנתונים ניתן לפנות אל:
       </p>
 
       <p>
@@ -282,13 +521,12 @@
       <p class="small">
         עדכון אחרון: 22.05.2026
       </p>
-    </div>
+    </section>
 
-    <div class="footer">
+    <footer class="footer">
       EatMates © 2026
-    </div>
-
-  </div>
+    </footer>
+  </main>
 
   <script>
     function showConfirm() {
@@ -314,7 +552,69 @@
       window.location.href =
         "mailto:djmotti@gmail.com?subject=" + subject + "&body=" + body;
     }
-  </script>
 
+    function toggleAccessibilityPanel() {
+      const panel = document.getElementById("accessibilityPanel");
+      const button = document.getElementById("accessibilityButton");
+      const isHidden = panel.classList.contains("hidden");
+
+      panel.classList.toggle("hidden");
+      button.setAttribute("aria-expanded", isHidden ? "true" : "false");
+    }
+
+    function toggleLargeText() {
+      document.body.classList.toggle("large-text");
+      saveAccessibility();
+    }
+
+    function toggleContrast() {
+      document.body.classList.toggle("high-contrast");
+      saveAccessibility();
+    }
+
+    function toggleUnderlineLinks() {
+      document.body.classList.toggle("underline-links");
+      saveAccessibility();
+    }
+
+    function toggleReduceMotion() {
+      document.body.classList.toggle("reduce-motion");
+      saveAccessibility();
+    }
+
+    function resetAccessibility() {
+      document.body.classList.remove("large-text", "high-contrast", "underline-links", "reduce-motion");
+      localStorage.removeItem("eatmatesAccessibility");
+    }
+
+    function saveAccessibility() {
+      const settings = {
+        largeText: document.body.classList.contains("large-text"),
+        highContrast: document.body.classList.contains("high-contrast"),
+        underlineLinks: document.body.classList.contains("underline-links"),
+        reduceMotion: document.body.classList.contains("reduce-motion")
+      };
+
+      localStorage.setItem("eatmatesAccessibility", JSON.stringify(settings));
+    }
+
+    function loadAccessibility() {
+      try {
+        const raw = localStorage.getItem("eatmatesAccessibility");
+        if (!raw) return;
+
+        const settings = JSON.parse(raw);
+
+        if (settings.largeText) document.body.classList.add("large-text");
+        if (settings.highContrast) document.body.classList.add("high-contrast");
+        if (settings.underlineLinks) document.body.classList.add("underline-links");
+        if (settings.reduceMotion) document.body.classList.add("reduce-motion");
+      } catch (error) {
+        localStorage.removeItem("eatmatesAccessibility");
+      }
+    }
+
+    loadAccessibility();
+  </script>
 </body>
 </html>
