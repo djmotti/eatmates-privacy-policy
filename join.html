@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>הצטרפות לאירוע - EatMates</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1e293b;
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .logo {
+      width: 110px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      color: #0f172a;
+    }
+
+    .code {
+      direction: ltr;
+      display: inline-block;
+      background: #eef2ff;
+      color: #1d4ed8;
+      font-size: 28px;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 16px;
+      margin: 16px 0;
+      letter-spacing: 2px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      border-radius: 16px;
+      padding: 16px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 14px;
+    }
+
+    .primary {
+      background: #2563eb;
+      color: #fff;
+    }
+
+    .secondary {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .note {
+      color: #64748b;
+      font-size: 14px;
+      margin-top: 18px;
+    }
+
+    .app-name {
+      direction: ltr;
+      unicode-bidi: isolate;
+      display: inline-block;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <img src="./logo.png" class="logo" alt="EatMates Logo" />
+
+    <h1>הצטרפות לאירוע</h1>
+
+    <p>
+      קיבלת הזמנה לאירוע דרך
+      <span class="app-name">EatMates</span>
+    </p>
+
+    <div id="codeBox" class="code">---</div>
+
+    <a id="openAppButton" class="btn primary" href="#">
+      פתח באפליקציית EatMates
+    </a>
+
+    <button class="btn secondary" onclick="copyCode()">
+      העתק קוד גישה
+    </button>
+
+    <p class="note">
+      אם האפליקציה לא נפתחת אוטומטית, פתח את EatMates ידנית והזן את קוד הגישה שמופיע כאן.
+    </p>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = (params.get('code') || '').trim().toUpperCase();
+
+    const codeBox = document.getElementById('codeBox');
+    const openAppButton = document.getElementById('openAppButton');
+
+    if (code) {
+      codeBox.textContent = code;
+      openAppButton.href = 'eatmates://join/' + encodeURIComponent(code);
+
+      setTimeout(() => {
+        window.location.href = openAppButton.href;
+      }, 700);
+    } else {
+      codeBox.textContent = 'לא נמצא קוד';
+      openAppButton.style.display = 'none';
+    }
+
+    function copyCode() {
+      if (!code) return;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('קוד הגישה הועתק');
+      });
+    }
+  </script>
+</body>
+</html>
