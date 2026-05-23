@@ -3,67 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>הצטרפות לאירוע - EatMates</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
+      min-height: 100vh;
       font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #1e293b;
+      background:
+        radial-gradient(circle at top, rgba(37, 99, 235, 0.12), transparent 34%),
+        linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+      color: #0f172a;
       line-height: 1.8;
+      padding: 20px;
     }
 
     .container {
-      max-width: 720px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 28px;
-      padding: 32px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 760px;
+      margin: 24px auto;
+      background: #ffffff;
+      border-radius: 30px;
+      padding: 28px;
+      box-shadow: 0 18px 55px rgba(15, 23, 42, 0.12);
       text-align: center;
+      border: 1px solid rgba(148, 163, 184, 0.22);
     }
 
     .logo {
-      width: 110px;
-      margin-bottom: 18px;
+      width: 108px;
+      max-width: 45%;
+      display: block;
+      margin: 0 auto 14px;
+    }
+
+    .banner {
+      width: 100%;
+      border-radius: 22px;
+      display: block;
+      margin: 0 auto 24px;
+      border: 1px solid #e2e8f0;
     }
 
     h1 {
-      margin: 0 0 12px;
+      margin: 0 0 8px;
+      font-size: 28px;
       color: #0f172a;
+    }
+
+    .subtitle {
+      margin: 0 auto 16px;
+      color: #475569;
+      font-size: 16px;
+      max-width: 560px;
+    }
+
+    .app-name {
+      direction: ltr;
+      unicode-bidi: isolate;
+      display: inline-block;
+      font-weight: 800;
+    }
+
+    .code-label {
+      margin-top: 20px;
+      color: #64748b;
+      font-size: 14px;
     }
 
     .code {
       direction: ltr;
       display: inline-block;
-      background: #eef2ff;
+      background: #eff6ff;
       color: #1d4ed8;
-      font-size: 28px;
-      font-weight: bold;
-      padding: 10px 20px;
-      border-radius: 16px;
-      margin: 16px 0;
-      letter-spacing: 2px;
+      font-size: 32px;
+      font-weight: 900;
+      padding: 10px 24px;
+      border-radius: 18px;
+      margin: 8px 0 20px;
+      letter-spacing: 3px;
+      border: 1px solid #bfdbfe;
     }
 
     .btn {
       display: block;
       width: 100%;
-      box-sizing: border-box;
       border: none;
-      border-radius: 16px;
+      border-radius: 18px;
       padding: 16px;
-      font-size: 18px;
-      font-weight: bold;
+      font-size: 17px;
+      font-weight: 800;
       cursor: pointer;
       text-decoration: none;
-      margin-top: 14px;
+      margin-top: 12px;
+      transition: transform 0.12s ease, opacity 0.12s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
     }
 
     .primary {
       background: #2563eb;
-      color: #fff;
+      color: #ffffff;
     }
 
     .secondary {
@@ -71,17 +118,59 @@
       color: #0f172a;
     }
 
+    .outline {
+      background: #ffffff;
+      color: #2563eb;
+      border: 1px solid #bfdbfe;
+    }
+
     .note {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 14px;
       color: #64748b;
       font-size: 14px;
       margin-top: 18px;
     }
 
-    .app-name {
+    .error {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      border-radius: 18px;
+      padding: 14px;
+      margin-top: 18px;
+      display: none;
+    }
+
+    .footer {
+      margin-top: 22px;
+      color: #94a3b8;
+      font-size: 13px;
       direction: ltr;
       unicode-bidi: isolate;
-      display: inline-block;
-      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      .container {
+        margin: 10px auto;
+        padding: 22px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .code {
+        font-size: 28px;
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -89,53 +178,129 @@
 <body>
   <main class="container">
     <img src="./logo.png" class="logo" alt="EatMates Logo" />
+    <img src="./banner.png" class="banner" alt="EatMates Banner" onerror="this.style.display='none'" />
 
     <h1>הצטרפות לאירוע</h1>
 
-    <p>
+    <p class="subtitle">
       קיבלת הזמנה לאירוע דרך
-      <span class="app-name">EatMates</span>
+      <span class="app-name">EatMates</span>.
+      ניתן לפתוח את האפליקציה ישירות או להעתיק את קוד הגישה.
     </p>
 
+    <div class="code-label">קוד הגישה שלך:</div>
     <div id="codeBox" class="code">---</div>
 
-    <a id="openAppButton" class="btn primary" href="#">
+    <button id="openAppButton" class="btn primary" type="button">
       פתח באפליקציית EatMates
-    </a>
+    </button>
 
-    <button class="btn secondary" onclick="copyCode()">
+    <button class="btn secondary" type="button" onclick="copyCode()">
       העתק קוד גישה
     </button>
 
+    <a id="installButton" class="btn outline" href="https://play.google.com/apps/internaltest/4701159345375549777">
+      התקן או עדכן את EatMates
+    </a>
+
+    <div id="errorBox" class="error">
+      לא נמצא קוד גישה תקין בקישור.
+    </div>
+
     <p class="note">
-      אם האפליקציה לא נפתחת אוטומטית, פתח את EatMates ידנית והזן את קוד הגישה שמופיע כאן.
+      אם האפליקציה לא נפתחת אוטומטית, לחץ על “פתח באפליקציית EatMates”.
+      אם עדיין לא נפתח, פתח את האפליקציה ידנית והזן את קוד הגישה שמופיע כאן.
     </p>
+
+    <div class="footer">
+      EatMates © 2026
+    </div>
   </main>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const code = (params.get('code') || '').trim().toUpperCase();
+    const INTERNAL_TEST_URL = 'https://play.google.com/apps/internaltest/4701159345375549777';
+
+    function getCodeFromUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const fromQuery = params.get('code');
+
+      if (fromQuery) {
+        return fromQuery.trim().toUpperCase();
+      }
+
+      const hash = window.location.hash || '';
+      const hashCode = hash.replace('#', '').replace('code=', '');
+
+      if (hashCode) {
+        return hashCode.trim().toUpperCase();
+      }
+
+      const pathParts = window.location.pathname.split('/').filter(Boolean);
+      const lastPart = pathParts[pathParts.length - 1];
+
+      if (lastPart && lastPart.toLowerCase() !== 'join.html') {
+        return decodeURIComponent(lastPart).trim().toUpperCase();
+      }
+
+      return '';
+    }
+
+    const code = getCodeFromUrl();
 
     const codeBox = document.getElementById('codeBox');
     const openAppButton = document.getElementById('openAppButton');
+    const installButton = document.getElementById('installButton');
+    const errorBox = document.getElementById('errorBox');
+
+    function getDeepLink() {
+      return 'eatmates://join/' + encodeURIComponent(code);
+    }
+
+    function getAndroidIntentLink() {
+      return 'intent://join/' + encodeURIComponent(code) + '#Intent;scheme=eatmates;end';
+    }
+
+    function openEatMates() {
+      if (!code) return;
+
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      const deepLink = isAndroid ? getAndroidIntentLink() : getDeepLink();
+
+      window.location.href = deepLink;
+
+      setTimeout(() => {
+        installButton.style.opacity = '1';
+      }, 1200);
+    }
+
+    async function copyCode() {
+      if (!code) return;
+
+      try {
+        await navigator.clipboard.writeText(code);
+        alert('קוד הגישה הועתק');
+      } catch (error) {
+        const tempInput = document.createElement('input');
+        tempInput.value = code;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        alert('קוד הגישה הועתק');
+      }
+    }
 
     if (code) {
       codeBox.textContent = code;
-      openAppButton.href = 'eatmates://join/' + encodeURIComponent(code);
+      openAppButton.addEventListener('click', openEatMates);
+      installButton.href = INTERNAL_TEST_URL;
 
-      setTimeout(() => {
-        window.location.href = openAppButton.href;
-      }, 700);
+      setTimeout(openEatMates, 800);
     } else {
-      codeBox.textContent = 'לא נמצא קוד';
+      codeBox.textContent = '---';
       openAppButton.style.display = 'none';
-    }
-
-    function copyCode() {
-      if (!code) return;
-      navigator.clipboard.writeText(code).then(() => {
-        alert('קוד הגישה הועתק');
-      });
+      installButton.style.display = 'none';
+      errorBox.style.display = 'block';
     }
   </script>
 </body>
